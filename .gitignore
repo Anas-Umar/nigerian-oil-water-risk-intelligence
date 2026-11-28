@@ -1,0 +1,48 @@
+# ---------------------------------------------------------------------------
+# THIRD-PARTY AND DERIVED DATA: NEVER COMMIT (see DATA_POLICY.md)
+# ---------------------------------------------------------------------------
+data/
+outputs/
+archive/
+*.gpkg
+*.gpkg-wal
+*.gpkg-shm
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.geojson
+*.kml
+*.kmz
+*.tif
+*.tiff
+*.nc
+*.zip
+*.7z
+*.rar
+*.gz
+*.tar
+*.parquet
+*.feather
+*.sqlite
+*.db
+*.gdb/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

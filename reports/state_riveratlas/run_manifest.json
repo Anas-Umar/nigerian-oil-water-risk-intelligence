@@ -1,0 +1,536 @@
+{
+  "project": "Nigerian Oil-Water Risk Intelligence (NOWRI)",
+  "pipeline_version": "0.1.1",
+  "run_id": "state_riveratlas_20261128T045043Z",
+  "mode": "state",
+  "created_utc": "2026-11-28T05:04:35+00:00",
+  "git_commit": null,
+  "status": "Preliminary spatial screening dataset (not validated)",
+  "parameters": {
+    "extraction_bbox_lon_lat": [
+      4.7268,
+      4.0202,
+      7.8406,
+      6.7512
+    ],
+    "state_bounds_margin_deg": 0.25,
+    "river_source": "riveratlas",
+    "analysis_crs_proj4": "+proj=aeqd +lat_0=5.25 +lon_0=5.75 +datum=WGS84 +units=m +no_defs +type=crs",
+    "distance_method": "minimum 2-D planar geometry-to-geometry distance (unrounded metres)",
+    "intersection_method": "geometric intersects test",
+    "bands": [
+      "Intersecting (0 km)",
+      ">0–1 km",
+      "1–5 km",
+      ">5 km"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Oil and Gas Infrastructure Mapping (OGIM) database",
+      "version": "v3.0",
+      "doi": "10.5281/zenodo.22835235",
+      "url": "https://zenodo.org/records/22835235",
+      "citation": "OGIM v3.0, Zenodo, https://doi.org/10.5281/zenodo.22835235 (CC BY 4.0). Method: Omara, M. et al. (2023), Earth System Science Data 15, 3761, https://doi.org/10.5194/essd-15-3761-2023",
+      "access_date_utc": "2026-11-28T04:50:43+00:00",
+      "title": "Oil and Gas Infrastructure Mapping (OGIM) database v3.0",
+      "publication_date": "2026-09-18",
+      "licence_recorded": "cc-by-4.0",
+      "zenodo_metadata_license_raw": {
+        "id": "cc-by-4.0"
+      },
+      "zenodo_metadata_rights_raw": null,
+      "expected_size_bytes": 3422806016,
+      "md5_verified": "99d94e96eefe4d7f561d1a2dbcc1a313",
+      "size_bytes": 3422806016
+    },
+    {
+      "name": "HydroATLAS - RiverATLAS (river reach lines)",
+      "version": "v1.0 (Africa tiles)",
+      "url": "https://www.hydrosheds.org/products/hydroatlas",
+      "download_url": "https://figshare.com/ndownloader/files/20087486",
+      "citation": "Linke, S. et al. (2019). Global hydro-environmental sub-basin and river reach characteristics at high spatial resolution. Scientific Data 6: 283. https://doi.org/10.1038/s41597-019-0300-6 ; and Lehner, B., & Grill, G. (2013), https://doi.org/10.1002/hyp.9740",
+      "source_resolution": "15 arc-seconds",
+      "access_date_utc": "2026-11-28T05:03:15+00:00",
+      "licence_recorded": "CC BY 4.0: HydroATLAS is licensed as a Collective Database under CC BY 4.0 per the provider's product page and HydroATLAS Technical Documentation v1.0.1 section 4.1. Individual parts keep their own licences and the original HydroSHEDS/HydroRIVERS licences are unaffected. Contains the same reaches and HYRIV_ID as HydroRIVERS.",
+      "tiles": [
+        "RiverATLAS_v10_af.shp"
+      ],
+      "zip_sha256": "d8781793a2c2aae425417641a0e62b7f8f07efbba2b01357387acf898c82eae4"
+    },
+    {
+      "name": "geoBoundaries ADM1 (Nigeria)",
+      "version": "gbOpen/current",
+      "boundary_name": "Nigeria",
+      "boundary_type": "ADM1",
+      "year_represented": "2022",
+      "boundary_source": "GRID3",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/NGA/ADM1/",
+      "download_url": "https://www.geoboundaries.org/data/snapshots/1c423398df24ddf6e730b116567d2181c9782778d0459c3f3b76ca2f9f12b6bc/gbOpen/NGA/ADM1/geoBoundaries-NGA-ADM1.geojson",
+      "licence_recorded": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "access_date_utc": "2026-11-28T05:04:18+00:00"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "nowri_proximity_state.gpkg",
+      "sha256": "fe9bd87d425f30ea0e217105619d0c040e1d7e592620ce8392a9a427e0d7beb9",
+      "size_bytes": 884736
+    },
+    {
+      "file": "data_dictionary.csv",
+      "sha256": "5f469f93829fd9174d6208787e6441c0d998daaeba0b0f3b16ef4f36706b504e",
+      "size_bytes": 63496
+    }
+  ],
+  "results": {
+    "records_by_layer": {
+      "pipelines": 140,
+      "oil_gas_fields": 177,
+      "gas_processing": 6,
+      "offshore": 192,
+      "terminals": 29,
+      "refineries": 3,
+      "stations": 237,
+      "flaring": 438,
+      "wells": 47
+    },
+    "assigned_by_layer": {
+      "pipelines": 140,
+      "oil_gas_fields": 177,
+      "gas_processing": 6,
+      "offshore": 37,
+      "terminals": 26,
+      "refineries": 3,
+      "stations": 211,
+      "flaring": 356,
+      "wells": 0
+    },
+    "intersections_by_layer": {
+      "pipelines": 126,
+      "oil_gas_fields": 154,
+      "gas_processing": 0,
+      "offshore": 0,
+      "terminals": 0,
+      "refineries": 0,
+      "stations": 0,
+      "flaring": 0,
+      "wells": 0
+    },
+    "unique_ogim_ids_by_layer": {
+      "pipelines": 126,
+      "oil_gas_fields": 167,
+      "gas_processing": 6,
+      "offshore": 192,
+      "terminals": 29,
+      "refineries": 3,
+      "stations": 237,
+      "flaring": 438,
+      "wells": 47
+    },
+    "total_records": 1269,
+    "assigned_total": 956,
+    "unassigned_total": 313,
+    "intersections_total": 280,
+    "unique_ogim_ids_total": 1245,
+    "bands_assigned": {
+      "Intersecting (0 km)": 280,
+      ">0–1 km": 460,
+      "1–5 km": 213,
+      ">5 km": 3
+    },
+    "bands_assigned_by_layer": {
+      "pipelines": {
+        "Intersecting (0 km)": 126,
+        ">0–1 km": 12,
+        "1–5 km": 2,
+        ">5 km": 0
+      },
+      "oil_gas_fields": {
+        "Intersecting (0 km)": 154,
+        ">0–1 km": 20,
+        "1–5 km": 3,
+        ">5 km": 0
+      },
+      "gas_processing": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 3,
+        "1–5 km": 2,
+        ">5 km": 1
+      },
+      "offshore": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 24,
+        "1–5 km": 13,
+        ">5 km": 0
+      },
+      "terminals": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 19,
+        "1–5 km": 7,
+        ">5 km": 0
+      },
+      "refineries": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 1,
+        "1–5 km": 2,
+        ">5 km": 0
+      },
+      "stations": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 157,
+        "1–5 km": 53,
+        ">5 km": 1
+      },
+      "flaring": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 224,
+        "1–5 km": 131,
+        ">5 km": 1
+      },
+      "wells": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 0,
+        "1–5 km": 0,
+        ">5 km": 0
+      }
+    },
+    "bands_assigned_by_state": {
+      "Bayelsa": {
+        "Intersecting (0 km)": 53,
+        ">0–1 km": 99,
+        "1–5 km": 33,
+        ">5 km": 0
+      },
+      "Rivers": {
+        "Intersecting (0 km)": 125,
+        ">0–1 km": 188,
+        "1–5 km": 112,
+        ">5 km": 3
+      },
+      "Delta": {
+        "Intersecting (0 km)": 102,
+        ">0–1 km": 173,
+        "1–5 km": 68,
+        ">5 km": 0
+      }
+    },
+    "records_by_state": {
+      "Bayelsa": 185,
+      "Rivers": 428,
+      "Delta": 343
+    },
+    "extras": {
+      "records_by_layer": {
+        "lng": 7
+      },
+      "assigned_by_layer": {
+        "lng": 7
+      },
+      "intersections_by_layer": {
+        "lng": 0
+      },
+      "unique_ogim_ids_by_layer": {
+        "lng": 7
+      },
+      "total_records": 7,
+      "assigned_total": 7,
+      "unassigned_total": 0,
+      "intersections_total": 0,
+      "unique_ogim_ids_total": 7,
+      "bands_assigned": {
+        "Intersecting (0 km)": 0,
+        ">0–1 km": 0,
+        "1–5 km": 7,
+        ">5 km": 0
+      },
+      "bands_assigned_by_layer": {
+        "lng": {
+          "Intersecting (0 km)": 0,
+          ">0–1 km": 0,
+          "1–5 km": 7,
+          ">5 km": 0
+        }
+      },
+      "bands_assigned_by_state": {
+        "Bayelsa": {
+          "Intersecting (0 km)": 0,
+          ">0–1 km": 0,
+          "1–5 km": 0,
+          ">5 km": 0
+        },
+        "Rivers": {
+          "Intersecting (0 km)": 0,
+          ">0–1 km": 0,
+          "1–5 km": 7,
+          ">5 km": 0
+        },
+        "Delta": {
+          "Intersecting (0 km)": 0,
+          ">0–1 km": 0,
+          "1–5 km": 0,
+          ">5 km": 0
+        }
+      },
+      "records_by_state": {
+        "Bayelsa": 0,
+        "Rivers": 7,
+        "Delta": 0
+      }
+    },
+    "river_network": {
+      "records_in_box": 11126,
+      "sections_clipped": 5772,
+      "unique_ids_clipped": 5610
+    }
+  },
+  "extra_layers_included": [
+    "lng"
+  ],
+  "quality_control": {
+    "consistency_audit_problems": 0,
+    "literal_NA_occurrences": 6078,
+    "numeric_minus_999_sentinels": 921,
+    "placeholder_dates_1900_01_01": 701,
+    "actual_null_cells": 626
+  },
+  "projection_check": {
+    "sample_size": 79,
+    "layers_represented": 9,
+    "tied_nearest_river_records": 14,
+    "zero_distance_records": 18,
+    "nonzero_distance_records": 61,
+    "mean_absolute_difference_m": 0.47355669331245803,
+    "median_absolute_difference_m": 0.0286056256911138,
+    "p75_absolute_difference_m": 0.1378321525944557,
+    "maximum_absolute_difference_m": 4.581195568025578,
+    "mean_difference_percent": 0.003206403902518527,
+    "maximum_difference_percent": 0.013563136502091361,
+    "stored_distances_matching": 79,
+    "stored_distances_mismatching": 0,
+    "statistics_population": "non-zero-distance records only (as in the v0.1 verification)"
+  },
+  "regression_vs_v0_1": {
+    "informational": true,
+    "note": "differences from v0.1 are expected: the extent was changed on purpose",
+    "passed": null,
+    "n_checks": 41,
+    "n_unchanged": 10,
+    "n_changed": 31,
+    "changed": [
+      {
+        "check": "records_by_layer.pipelines",
+        "expected": 112,
+        "observed": 140,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.oil_gas_fields",
+        "expected": 152,
+        "observed": 177,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.gas_processing",
+        "expected": 5,
+        "observed": 6,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.offshore",
+        "expected": 124,
+        "observed": 192,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.terminals",
+        "expected": 24,
+        "observed": 29,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.refineries",
+        "expected": 1,
+        "observed": 3,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.stations",
+        "expected": 226,
+        "observed": 237,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.flaring",
+        "expected": 361,
+        "observed": 438,
+        "ok": false
+      },
+      {
+        "check": "records_by_layer.wells",
+        "expected": 27,
+        "observed": 47,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.pipelines",
+        "expected": 112,
+        "observed": 140,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.oil_gas_fields",
+        "expected": 152,
+        "observed": 177,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.gas_processing",
+        "expected": 5,
+        "observed": 6,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.offshore",
+        "expected": 36,
+        "observed": 37,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.terminals",
+        "expected": 22,
+        "observed": 26,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.refineries",
+        "expected": 1,
+        "observed": 3,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.stations",
+        "expected": 200,
+        "observed": 211,
+        "ok": false
+      },
+      {
+        "check": "assigned_by_layer.flaring",
+        "expected": 295,
+        "observed": 356,
+        "ok": false
+      },
+      {
+        "check": "intersections_by_layer.pipelines",
+        "expected": 107,
+        "observed": 126,
+        "ok": false
+      },
+      {
+        "check": "intersections_by_layer.oil_gas_fields",
+        "expected": 133,
+        "observed": 154,
+        "ok": false
+      },
+      {
+        "check": "total_records",
+        "expected": 1032,
+        "observed": 1269,
+        "ok": false
+      },
+      {
+        "check": "assigned_total",
+        "expected": 823,
+        "observed": 956,
+        "ok": false
+      },
+      {
+        "check": "unassigned_total",
+        "expected": 209,
+        "observed": 313,
+        "ok": false
+      },
+      {
+        "check": "intersections_total",
+        "expected": 240,
+        "observed": 280,
+        "ok": false
+      },
+      {
+        "check": "unique_ogim_ids_total",
+        "expected": 1008,
+        "observed": 1245,
+        "ok": false
+      },
+      {
+        "check": "bands_assigned.Intersecting (0 km)",
+        "expected": 240,
+        "observed": 280,
+        "ok": false
+      },
+      {
+        "check": "bands_assigned.>0–1 km",
+        "expected": 403,
+        "observed": 460,
+        "ok": false
+      },
+      {
+        "check": "bands_assigned.1–5 km",
+        "expected": 179,
+        "observed": 213,
+        "ok": false
+      },
+      {
+        "check": "bands_assigned.>5 km",
+        "expected": 1,
+        "observed": 3,
+        "ok": false
+      },
+      {
+        "check": "records_by_state.Rivers",
+        "expected": 295,
+        "observed": 428,
+        "ok": false
+      },
+      {
+        "check": "river_sections_clipped",
+        "expected": 5231,
+        "observed": 5772,
+        "ok": false
+      },
+      {
+        "check": "river_unique_ids_clipped",
+        "expected": 5069,
+        "observed": 5610,
+        "ok": false
+      }
+    ]
+  },
+  "record_level_regression_vs_v0_1": null,
+  "software_environment": {
+    "python": "3.13.18",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "geopandas": "1.2.0",
+    "pandas": "2.2.3",
+    "numpy": "2.4.6",
+    "shapely": "2.2.0",
+    "pyproj": "3.8.0",
+    "pyogrio": "0.13.0",
+    "requests": "2.32.4",
+    "geos": "3.14.1",
+    "proj": "9.8.1",
+    "gdal": "3.12.4"
+  },
+  "limitations": [
+    "Preliminary spatial screening only; not a validated environmental risk assessment.",
+    "Proximity or geometric intersection does not establish exposure, contamination, leakage, a physical pipeline crossing or unsafe water.",
+    "Hydrological connectivity is not modelled; no flow direction, terrain or tidal effects.",
+    "HydroRIVERS (derived from 15 arc-second data) omits many small creeks and channels and has coarse positional accuracy relative to the infrastructure data.",
+    "OGIM coverage, attributes, dates and positions may be incomplete, generalised or out of date. Status and operator attributes are largely 'N/A'.",
+    "Distances for records outside the three pilot-state polygons are measured to a river network clipped to those polygons and must not be read as distances to all Nigerian rivers.",
+    "Distances are measured to a river network clipped to the state polygons; see network_sensitivity.csv for the effect of using the unclipped network.",
+    "Satellite flaring detections are not measurements of water contamination.",
+    "Distance bands are descriptive categories, not regulatory limits or validated risk classes."
+  ],
+  "redistribution_note": "This output contains attributes and geometries derived from third-party datasets. OGIM and geoBoundaries are CC BY 4.0 (attribution required, changes must be indicated). The river network came from RiverATLAS (HydroATLAS), which the provider licenses CC BY 4.0 as a Collective Database (individual parts keep their own licences; see HydroATLAS Technical Documentation section 4.1). No river geometries are included in the output. See DATA_POLICY.md and ATTRIBUTION.md. Only aggregate reports are intended for version control."
+}

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below. The pipeline is a preliminary spatial screening tool, not a validated risk assessment."
+title: "NOWRI: Nigerian Oil-Water Risk Intelligence"
+type: software
+version: "0.1.1"
+license: MIT
+repository-code: "https://github.com/Anas-Umar/nigerian-oil-water-risk-intelligence"
+abstract: "Reproducible geospatial screening of oil and gas infrastructure proximity to mapped river networks in Bayelsa, Rivers and Delta States, Niger Delta, Nigeria. Proximity does not establish exposure, contamination or environmental impact."
+keywords:
+  - Niger Delta
+  - oil and gas infrastructure
+  - hydrography
+  - GIS
+  - spatial screening
+authors:
+  - family-names: "Aliyu"
+    given-names: "Anas Umar"

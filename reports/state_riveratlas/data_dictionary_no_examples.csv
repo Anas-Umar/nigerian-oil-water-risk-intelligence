@@ -1,0 +1,363 @@
+Layer,Field,Data_type,Total_records,Non_null_values,Null_values,Placeholder_values,Informative_values,Description
+pipelines,OGIM_ID,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,CATEGORY,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,REGION,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,COUNTRY,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,STATE_PROV,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,SRC_REF_ID,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,SRC_DATE,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,ON_OFFSHORE,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,FAC_NAME,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,FAC_ID,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,FAC_TYPE,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,FAC_STATUS,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,OGIM_STATUS,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,OPERATOR,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,INSTALL_DATE,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,COMMODITY,object,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,LIQ_CAPACITY_BPD,float64,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,LIQ_THROUGHPUT_BPD,float64,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,GAS_CAPACITY_MMCFD,float64,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,GAS_THROUGHPUT_MMCFD,float64,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,PIPE_DIAMETER_MM,float64,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,PIPE_LENGTH_KM,float64,140,140,0,0,140,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,PIPE_MATERIAL,object,140,140,0,140,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+pipelines,SPATIAL_STATE,object,140,140,0,0,140,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+pipelines,CLIPPED_LENGTH_KM,float64,140,140,0,0,140,Geodesic (WGS 84) length in km of the section after clipping to the state.
+pipelines,Section_ID,object,140,140,0,0,140,Identifier of the state-specific section within its layer (assigned by NOWRI).
+pipelines,Asset_category,object,140,140,0,0,140,NOWRI asset category (one per output layer).
+pipelines,Unit_type,object,140,140,0,0,140,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+pipelines,Asset_subtype,object,140,140,0,0,140,Sub-type taken from the OGIM facility/reservoir type where available.
+pipelines,Distance_to_river_m,float64,140,140,0,0,140,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+pipelines,Distance_to_river_km,float64,140,140,0,0,140,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+pipelines,Nearest_river_matches,int64,140,140,0,0,140,Number of distinct HYRIV_ID values tied at the minimum distance.
+pipelines,Intersects_mapped_river,bool,140,140,0,0,140,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+pipelines,Distance_band,object,140,140,0,0,140,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+pipelines,Location_assignment,object,140,140,0,0,140,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+pipelines,Distance_band_to_pilot_network,object,140,140,0,0,140,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+pipelines,Distance_to_unclipped_network_m,float64,140,140,0,0,140,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+pipelines,Intersects_unclipped_network,bool,140,140,0,0,140,Sensitivity field: intersection with the unclipped network.
+oil_gas_fields,OGIM_ID,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,CATEGORY,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,REGION,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,COUNTRY,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,STATE_PROV,object,177,177,0,177,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,SRC_REF_ID,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,SRC_DATE,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,ON_OFFSHORE,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,NAME,object,177,177,0,15,162,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,RESERVOIR_TYPE,object,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,OPERATOR,object,177,177,0,177,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,AREA_KM2,float64,177,177,0,0,177,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+oil_gas_fields,SPATIAL_STATE,object,177,177,0,0,177,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+oil_gas_fields,CLIPPED_AREA_KM2,float64,177,177,0,0,177,Geodesic (WGS 84) area in km2 of the polygon section after clipping to the state.
+oil_gas_fields,Section_ID,object,177,177,0,0,177,Identifier of the state-specific section within its layer (assigned by NOWRI).
+oil_gas_fields,Asset_category,object,177,177,0,0,177,NOWRI asset category (one per output layer).
+oil_gas_fields,Unit_type,object,177,177,0,0,177,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+oil_gas_fields,Asset_subtype,object,177,177,0,0,177,Sub-type taken from the OGIM facility/reservoir type where available.
+oil_gas_fields,Distance_to_river_m,float64,177,177,0,0,177,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+oil_gas_fields,Distance_to_river_km,float64,177,177,0,0,177,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+oil_gas_fields,Nearest_river_matches,int64,177,177,0,0,177,Number of distinct HYRIV_ID values tied at the minimum distance.
+oil_gas_fields,Intersects_mapped_river,bool,177,177,0,0,177,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+oil_gas_fields,Distance_band,object,177,177,0,0,177,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+oil_gas_fields,Location_assignment,object,177,177,0,0,177,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+oil_gas_fields,Distance_band_to_pilot_network,object,177,177,0,0,177,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+oil_gas_fields,Distance_to_unclipped_network_m,float64,177,177,0,0,177,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+oil_gas_fields,Intersects_unclipped_network,bool,177,177,0,0,177,Sensitivity field: intersection with the unclipped network.
+gas_processing,OGIM_ID,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,CATEGORY,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,REGION,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,COUNTRY,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,STATE_PROV,object,6,6,0,1,5,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,SRC_REF_ID,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,SRC_DATE,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,ON_OFFSHORE,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,FAC_NAME,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,FAC_ID,object,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,FAC_TYPE,object,6,6,0,0,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,FAC_STATUS,object,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,OGIM_STATUS,object,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,OPERATOR,object,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,INSTALL_DATE,object,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,COMMODITY,object,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,LIQ_CAPACITY_BPD,float64,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,LIQ_THROUGHPUT_BPD,float64,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,GAS_CAPACITY_MMCFD,float64,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,GAS_THROUGHPUT_MMCFD,float64,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,NUM_COMPR_UNITS,int64,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,NUM_STORAGE_TANKS,int64,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,SITE_HP,float64,6,6,0,6,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+gas_processing,LATITUDE,float64,6,6,0,0,6,OGIM source attribute: latitude in decimal degrees (WGS 84).
+gas_processing,LONGITUDE,float64,6,6,0,0,6,OGIM source attribute: longitude in decimal degrees (WGS 84).
+gas_processing,SPATIAL_STATE,object,6,6,0,0,6,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+gas_processing,Asset_category,object,6,6,0,0,6,NOWRI asset category (one per output layer).
+gas_processing,Unit_type,object,6,6,0,0,6,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+gas_processing,Asset_subtype,object,6,6,0,0,6,Sub-type taken from the OGIM facility/reservoir type where available.
+gas_processing,Source_state,object,6,6,0,1,5,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+gas_processing,State_attribute_conflict,bool,6,6,0,0,6,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+gas_processing,Distance_to_river_m,float64,6,6,0,0,6,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+gas_processing,Distance_to_river_km,float64,6,6,0,0,6,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+gas_processing,Nearest_river_matches,int64,6,6,0,0,6,Number of distinct HYRIV_ID values tied at the minimum distance.
+gas_processing,Intersects_mapped_river,bool,6,6,0,0,6,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+gas_processing,Distance_band,object,6,6,0,0,6,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+gas_processing,Location_assignment,object,6,6,0,0,6,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+gas_processing,Distance_band_to_pilot_network,object,6,6,0,0,6,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+gas_processing,Distance_to_unclipped_network_m,float64,6,6,0,0,6,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+gas_processing,Intersects_unclipped_network,bool,6,6,0,0,6,Sensitivity field: intersection with the unclipped network.
+offshore,OGIM_ID,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,CATEGORY,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,REGION,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,COUNTRY,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,STATE_PROV,object,192,192,0,153,39,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,SRC_REF_ID,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,SRC_DATE,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,ON_OFFSHORE,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,FAC_NAME,object,192,192,0,7,185,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,FAC_ID,object,192,192,0,192,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,FAC_TYPE,object,192,192,0,0,192,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,FAC_STATUS,object,192,192,0,192,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,OGIM_STATUS,object,192,192,0,192,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,OPERATOR,object,192,192,0,98,94,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,INSTALL_DATE,object,192,192,0,192,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,COMMODITY,object,192,192,0,192,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+offshore,LATITUDE,float64,192,192,0,0,192,OGIM source attribute: latitude in decimal degrees (WGS 84).
+offshore,LONGITUDE,float64,192,192,0,0,192,OGIM source attribute: longitude in decimal degrees (WGS 84).
+offshore,SPATIAL_STATE,object,192,37,155,0,37,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+offshore,Asset_category,object,192,192,0,0,192,NOWRI asset category (one per output layer).
+offshore,Unit_type,object,192,192,0,0,192,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+offshore,Asset_subtype,object,192,192,0,0,192,Sub-type taken from the OGIM facility/reservoir type where available.
+offshore,Source_state,object,192,192,0,153,39,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+offshore,State_attribute_conflict,bool,192,192,0,0,192,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+offshore,Distance_to_river_m,float64,192,192,0,0,192,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+offshore,Distance_to_river_km,float64,192,192,0,0,192,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+offshore,Nearest_river_matches,int64,192,192,0,0,192,Number of distinct HYRIV_ID values tied at the minimum distance.
+offshore,Intersects_mapped_river,bool,192,192,0,0,192,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+offshore,Distance_band,object,192,37,155,0,37,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+offshore,Location_assignment,object,192,192,0,0,192,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+offshore,Distance_band_to_pilot_network,object,192,192,0,0,192,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+offshore,Distance_to_unclipped_network_m,float64,192,192,0,0,192,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+offshore,Intersects_unclipped_network,bool,192,192,0,0,192,Sensitivity field: intersection with the unclipped network.
+terminals,OGIM_ID,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,CATEGORY,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,REGION,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,COUNTRY,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,STATE_PROV,object,29,29,0,10,19,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,SRC_REF_ID,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,SRC_DATE,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,ON_OFFSHORE,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,FAC_NAME,object,29,29,0,0,29,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,FAC_ID,object,29,29,0,23,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,FAC_TYPE,object,29,29,0,6,23,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,FAC_STATUS,object,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,OGIM_STATUS,object,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,OPERATOR,object,29,29,0,1,28,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,INSTALL_DATE,object,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,COMMODITY,object,29,29,0,23,6,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,LIQ_CAPACITY_BPD,float64,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,LIQ_THROUGHPUT_BPD,float64,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,GAS_CAPACITY_MMCFD,float64,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,GAS_THROUGHPUT_MMCFD,float64,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,NUM_STORAGE_TANKS,int64,29,29,0,29,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+terminals,LATITUDE,float64,29,29,0,0,29,OGIM source attribute: latitude in decimal degrees (WGS 84).
+terminals,LONGITUDE,float64,29,29,0,0,29,OGIM source attribute: longitude in decimal degrees (WGS 84).
+terminals,SPATIAL_STATE,object,29,26,3,0,26,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+terminals,Asset_category,object,29,29,0,0,29,NOWRI asset category (one per output layer).
+terminals,Unit_type,object,29,29,0,0,29,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+terminals,Asset_subtype,object,29,29,0,6,23,Sub-type taken from the OGIM facility/reservoir type where available.
+terminals,Source_state,object,29,29,0,10,19,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+terminals,State_attribute_conflict,bool,29,29,0,0,29,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+terminals,Distance_to_river_m,float64,29,29,0,0,29,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+terminals,Distance_to_river_km,float64,29,29,0,0,29,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+terminals,Nearest_river_matches,int64,29,29,0,0,29,Number of distinct HYRIV_ID values tied at the minimum distance.
+terminals,Intersects_mapped_river,bool,29,29,0,0,29,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+terminals,Distance_band,object,29,26,3,0,26,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+terminals,Location_assignment,object,29,29,0,0,29,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+terminals,Distance_band_to_pilot_network,object,29,29,0,0,29,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+terminals,Distance_to_unclipped_network_m,float64,29,29,0,0,29,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+terminals,Intersects_unclipped_network,bool,29,29,0,0,29,Sensitivity field: intersection with the unclipped network.
+refineries,OGIM_ID,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,CATEGORY,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,REGION,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,COUNTRY,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,STATE_PROV,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,SRC_REF_ID,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,SRC_DATE,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,ON_OFFSHORE,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,FAC_NAME,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,FAC_ID,object,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,FAC_TYPE,object,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,FAC_STATUS,object,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,OGIM_STATUS,object,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,OPERATOR,object,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,INSTALL_DATE,object,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,COMMODITY,object,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,LIQ_CAPACITY_BPD,float64,3,3,0,0,3,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,LIQ_THROUGHPUT_BPD,float64,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,NUM_STORAGE_TANKS,int64,3,3,0,3,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+refineries,LATITUDE,float64,3,3,0,0,3,OGIM source attribute: latitude in decimal degrees (WGS 84).
+refineries,LONGITUDE,float64,3,3,0,0,3,OGIM source attribute: longitude in decimal degrees (WGS 84).
+refineries,SPATIAL_STATE,object,3,3,0,0,3,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+refineries,Asset_category,object,3,3,0,0,3,NOWRI asset category (one per output layer).
+refineries,Unit_type,object,3,3,0,0,3,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+refineries,Asset_subtype,object,3,3,0,3,0,Sub-type taken from the OGIM facility/reservoir type where available.
+refineries,Source_state,object,3,3,0,0,3,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+refineries,State_attribute_conflict,bool,3,3,0,0,3,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+refineries,Distance_to_river_m,float64,3,3,0,0,3,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+refineries,Distance_to_river_km,float64,3,3,0,0,3,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+refineries,Nearest_river_matches,int64,3,3,0,0,3,Number of distinct HYRIV_ID values tied at the minimum distance.
+refineries,Intersects_mapped_river,bool,3,3,0,0,3,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+refineries,Distance_band,object,3,3,0,0,3,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+refineries,Location_assignment,object,3,3,0,0,3,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+refineries,Distance_band_to_pilot_network,object,3,3,0,0,3,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+refineries,Distance_to_unclipped_network_m,float64,3,3,0,0,3,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+refineries,Intersects_unclipped_network,bool,3,3,0,0,3,Sensitivity field: intersection with the unclipped network.
+stations,OGIM_ID,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,CATEGORY,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,REGION,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,COUNTRY,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,STATE_PROV,object,237,237,0,9,228,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,SRC_REF_ID,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,SRC_DATE,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,ON_OFFSHORE,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,FAC_NAME,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,FAC_ID,object,237,237,0,237,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,FAC_TYPE,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,FAC_STATUS,object,237,237,0,237,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,OGIM_STATUS,object,237,237,0,237,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,OPERATOR,object,237,237,0,0,237,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,INSTALL_DATE,object,237,237,0,237,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,COMMODITY,object,237,237,0,237,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+stations,LATITUDE,float64,237,237,0,0,237,OGIM source attribute: latitude in decimal degrees (WGS 84).
+stations,LONGITUDE,float64,237,237,0,0,237,OGIM source attribute: longitude in decimal degrees (WGS 84).
+stations,SPATIAL_STATE,object,237,211,26,0,211,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+stations,Asset_category,object,237,237,0,0,237,NOWRI asset category (one per output layer).
+stations,Unit_type,object,237,237,0,0,237,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+stations,Asset_subtype,object,237,237,0,0,237,Sub-type taken from the OGIM facility/reservoir type where available.
+stations,Source_state,object,237,237,0,9,228,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+stations,State_attribute_conflict,bool,237,237,0,0,237,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+stations,Distance_to_river_m,float64,237,237,0,0,237,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+stations,Distance_to_river_km,float64,237,237,0,0,237,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+stations,Nearest_river_matches,int64,237,237,0,0,237,Number of distinct HYRIV_ID values tied at the minimum distance.
+stations,Intersects_mapped_river,bool,237,237,0,0,237,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+stations,Distance_band,object,237,211,26,0,211,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+stations,Location_assignment,object,237,237,0,0,237,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+stations,Distance_band_to_pilot_network,object,237,237,0,0,237,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+stations,Distance_to_unclipped_network_m,float64,237,237,0,0,237,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+stations,Intersects_unclipped_network,bool,237,237,0,0,237,Sensitivity field: intersection with the unclipped network.
+flaring,OGIM_ID,object,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,CATEGORY,object,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,REGION,object,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,COUNTRY,object,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,STATE_PROV,object,438,438,0,438,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,SRC_REF_ID,int64,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,SRC_DATE,object,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,ON_OFFSHORE,object,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,FAC_NAME,object,438,438,0,56,382,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,FAC_ID,object,438,438,0,0,438,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,FAC_TYPE,object,438,438,0,56,382,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,FAC_STATUS,object,438,438,0,438,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,OGIM_STATUS,object,438,438,0,438,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,OPERATOR,object,438,438,0,56,382,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+flaring,MMCF_2012,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2012 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2013,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2013 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2014,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2014 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2015,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2015 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2016,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2016 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2017,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2017 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2018,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2018 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2019,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2019 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2020,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2020 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2021,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2021 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2022,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2022 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2023,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2023 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2024,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2024 (million cubic feet). See OGIM documentation.
+flaring,MMCF_2025,float64,438,438,0,0,438,OGIM source attribute: flaring volume estimate for 2025 (million cubic feet). See OGIM documentation.
+flaring,LATITUDE,float64,438,438,0,0,438,OGIM source attribute: latitude in decimal degrees (WGS 84).
+flaring,LONGITUDE,float64,438,438,0,0,438,OGIM source attribute: longitude in decimal degrees (WGS 84).
+flaring,SPATIAL_STATE,object,438,356,82,0,356,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+flaring,Asset_category,object,438,438,0,0,438,NOWRI asset category (one per output layer).
+flaring,Unit_type,object,438,438,0,0,438,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+flaring,Asset_subtype,object,438,438,0,0,438,Sub-type taken from the OGIM facility/reservoir type where available.
+flaring,Source_state,object,438,438,0,438,0,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+flaring,State_attribute_conflict,bool,438,438,0,0,438,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+flaring,Distance_to_river_m,float64,438,438,0,0,438,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+flaring,Distance_to_river_km,float64,438,438,0,0,438,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+flaring,Nearest_river_matches,int64,438,438,0,0,438,Number of distinct HYRIV_ID values tied at the minimum distance.
+flaring,Intersects_mapped_river,bool,438,438,0,0,438,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+flaring,Distance_band,object,438,356,82,0,356,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+flaring,Location_assignment,object,438,438,0,0,438,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+flaring,Distance_band_to_pilot_network,object,438,438,0,0,438,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+flaring,Distance_to_unclipped_network_m,float64,438,438,0,0,438,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+flaring,Intersects_unclipped_network,bool,438,438,0,0,438,Sensitivity field: intersection with the unclipped network.
+wells,OGIM_ID,object,47,47,0,0,47,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,CATEGORY,object,47,47,0,0,47,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,REGION,object,47,47,0,0,47,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,COUNTRY,object,47,47,0,0,47,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,STATE_PROV,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,SRC_REF_ID,object,47,47,0,0,47,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,SRC_DATE,object,47,47,0,0,47,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,ON_OFFSHORE,object,47,47,0,0,47,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,FAC_NAME,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,FAC_ID,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,FAC_TYPE,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,DRILL_TYPE,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,SPUD_DATE,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,COMP_DATE,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,FAC_STATUS,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,OGIM_STATUS,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,OPERATOR,object,47,47,0,47,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+wells,LATITUDE,float64,47,47,0,0,47,OGIM source attribute: latitude in decimal degrees (WGS 84).
+wells,LONGITUDE,float64,47,47,0,0,47,OGIM source attribute: longitude in decimal degrees (WGS 84).
+wells,SPATIAL_STATE,object,47,0,47,0,0,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+wells,Asset_category,object,47,47,0,0,47,NOWRI asset category (one per output layer).
+wells,Unit_type,object,47,47,0,0,47,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+wells,Asset_subtype,object,47,47,0,47,0,Sub-type taken from the OGIM facility/reservoir type where available.
+wells,Source_state,object,47,47,0,47,0,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+wells,State_attribute_conflict,bool,47,47,0,0,47,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+wells,Distance_to_river_m,float64,47,47,0,0,47,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+wells,Distance_to_river_km,float64,47,47,0,0,47,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+wells,Nearest_river_matches,int64,47,47,0,0,47,Number of distinct HYRIV_ID values tied at the minimum distance.
+wells,Intersects_mapped_river,bool,47,47,0,0,47,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+wells,Distance_band,object,47,0,47,0,0,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+wells,Location_assignment,object,47,47,0,0,47,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+wells,Distance_band_to_pilot_network,object,47,47,0,0,47,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+wells,Distance_to_unclipped_network_m,float64,47,47,0,0,47,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+wells,Intersects_unclipped_network,bool,47,47,0,0,47,Sensitivity field: intersection with the unclipped network.
+lng,OGIM_ID,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,CATEGORY,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,REGION,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,COUNTRY,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,STATE_PROV,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,SRC_REF_ID,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,SRC_DATE,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,ON_OFFSHORE,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,FAC_NAME,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,FAC_ID,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,FAC_TYPE,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,FAC_STATUS,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,OGIM_STATUS,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,OPERATOR,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,INSTALL_DATE,object,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,COMMODITY,object,7,7,0,7,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,LIQ_CAPACITY_BPD,float64,7,7,0,7,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,LIQ_THROUGHPUT_BPD,float64,7,7,0,7,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,GAS_CAPACITY_MMCFD,float64,7,7,0,0,7,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,GAS_THROUGHPUT_MMCFD,float64,7,7,0,7,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,NUM_STORAGE_TANKS,int64,7,7,0,7,0,OGIM v3.0 source attribute (see OGIM documentation). The literal string 'N/A' means not available in the source.
+lng,LATITUDE,float64,7,7,0,0,7,OGIM source attribute: latitude in decimal degrees (WGS 84).
+lng,LONGITUDE,float64,7,7,0,0,7,OGIM source attribute: longitude in decimal degrees (WGS 84).
+lng,SPATIAL_STATE,object,7,7,0,0,7,"Pilot state (Bayelsa, Rivers or Delta) from a spatial join of the feature to geoBoundaries ADM1 polygons ('within' for points; clipping for lines and polygons). Empty if the feature lies outside the three state polygons."
+lng,Asset_category,object,7,7,0,0,7,NOWRI asset category (one per output layer).
+lng,Unit_type,object,7,7,0,0,7,'State-specific section' for lines/polygons clipped to a state (one asset may appear in several records); otherwise an individual asset or detection.
+lng,Asset_subtype,object,7,7,0,0,7,Sub-type taken from the OGIM facility/reservoir type where available.
+lng,Source_state,object,7,7,0,0,7,State name as given in the OGIM STATE_PROV attribute (may disagree with SPATIAL_STATE).
+lng,State_attribute_conflict,bool,7,7,0,0,7,True if the OGIM STATE_PROV attribute disagrees with SPATIAL_STATE (assigned point records with a usable source state only).
+lng,Distance_to_river_m,float64,7,7,0,0,7,"Minimum planar geometry-to-geometry distance in metres, in the custom AEQD projection, to the state-clipped river network (HydroRIVERS / RiverATLAS reaches). Unrounded. 0 if intersecting."
+lng,Distance_to_river_km,float64,7,7,0,0,7,Distance_to_river_m / 1000 rounded to 3 decimals. Display only; never used to classify.
+lng,Nearest_river_matches,int64,7,7,0,0,7,Number of distinct HYRIV_ID values tied at the minimum distance.
+lng,Intersects_mapped_river,bool,7,7,0,0,7,"True if the geometry directly intersects a clipped HydroRIVERS geometry (geometric test, independent of any rounded distance)."
+lng,Distance_band,object,7,7,0,0,7,"Descriptive band for state-assigned records only: Intersecting (0 km), >0-1 km, 1-5 km, >5 km. Empty for unassigned records."
+lng,Location_assignment,object,7,7,0,0,7,Whether the record was assigned to a pilot state or lies outside the three state polygons.
+lng,Distance_band_to_pilot_network,object,7,7,0,0,7,"Same bands for all records, relative to the state-clipped river network. For unassigned records this is not comparable with assigned results."
+lng,Distance_to_unclipped_network_m,float64,7,7,0,0,7,Sensitivity field: minimum distance in metres to the unclipped HydroRIVERS network inside the extraction box.
+lng,Intersects_unclipped_network,bool,7,7,0,0,7,Sensitivity field: intersection with the unclipped network.

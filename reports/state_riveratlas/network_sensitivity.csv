@@ -1,0 +1,10 @@
+layer,assigned_records,intersecting_clipped_network,intersecting_unclipped_network,band_changed_vs_clipped
+pipelines,140,126,126,0
+oil_gas_fields,177,154,154,1
+gas_processing,6,0,0,0
+offshore,37,0,0,0
+terminals,26,0,0,0
+refineries,3,0,0,0
+stations,211,0,0,0
+flaring,356,0,0,0
+wells,0,0,0,0

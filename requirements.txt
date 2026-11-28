@@ -1,0 +1,10 @@
+# Version ranges, not pins. Every run records the exact versions it used in
+# reports/<mode>/run_manifest.json (software_environment).
+geopandas>=1.0
+shapely>=2.0
+pyproj>=3.6
+pyogrio>=0.9
+pandas>=2.0
+numpy>=1.26
+requests>=2.31
+matplotlib>=3.7
